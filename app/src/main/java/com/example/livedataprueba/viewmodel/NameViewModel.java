@@ -6,6 +6,8 @@ import android.view.View;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
+import com.example.livedataprueba.utils.PreferencesProvider;
+
 public class NameViewModel extends ViewModel {
     //Create a LiveData with a String
     public MutableLiveData<String> currentName;
@@ -18,6 +20,9 @@ public class NameViewModel extends ViewModel {
     }
 
     public void pulsar(){
-        currentName.setValue("Paula");
+
+        int numero = PreferencesProvider.providePreferences().getInt("numero",0);
+
+        currentName.setValue("Paula " + numero);
     }
 }
