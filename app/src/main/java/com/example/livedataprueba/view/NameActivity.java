@@ -15,10 +15,15 @@ public class NameActivity extends AppCompatActivity {
 
     private NameViewModel viewmodel;
     private ContentMainBinding binding;
+    private String recuperatIntent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        Bundle extras = getIntent().getExtras();
+
+        recuperatIntent = extras.getString("opcio");
 
         binding = ContentMainBinding.inflate(getLayoutInflater());
 
@@ -35,7 +40,7 @@ public class NameActivity extends AppCompatActivity {
         viewmodel.currentName.observe(this, new Observer<String>() {
             @Override
             public void onChanged(String s) {
-                Toast.makeText(getApplicationContext(),"valor canviat",Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(),"valor canviat " + recuperatIntent,Toast.LENGTH_LONG).show();
             }
         });
 
