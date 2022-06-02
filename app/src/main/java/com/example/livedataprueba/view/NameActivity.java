@@ -1,18 +1,18 @@
-package com.example.livedataprueba.activity;
+package com.example.livedataprueba.view;
 
 import android.os.Bundle;
+import android.widget.Toast;
 
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
-import com.example.livedataprueba.R;
 import com.example.livedataprueba.databinding.ContentMainBinding;
 
 import com.example.livedataprueba.viewmodel.NameViewModel;
 
 public class NameActivity extends AppCompatActivity {
+
     private NameViewModel viewmodel;
     private ContentMainBinding binding;
 
@@ -32,21 +32,13 @@ public class NameActivity extends AppCompatActivity {
         //TODO @Didac. En aquesta funció li passem al binding el viewmodel que treballarà aquests mutables i li indiquem
         setup();
 
-
-        /*
-        //Create the observer which updates the UI
-        final Observer<String> nameObserver = new Observer<String>() {
+        viewmodel.currentName.observe(this, new Observer<String>() {
             @Override
-            public void onChanged(@Nullable final String newName) {
-                //Uptade the UI, in this case, a TextView
-                nameTextView.setText(newName);
+            public void onChanged(String s) {
+                Toast.makeText(getApplicationContext(),"valor canviat",Toast.LENGTH_LONG).show();
             }
-        };
+        });
 
-        //Observe the LiveData, passing in this activity as the LifecycleOwner and the observer
-        model.getCurrentName().observe(this, nameObserver);
-
-         */
     }
 
     //TODO @Didac. En aquesta funció li passem al binding el viewmodel que treballarà aquests mutables i li indiquem

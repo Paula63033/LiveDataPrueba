@@ -1,4 +1,4 @@
-package com.example.livedataprueba;
+package com.example.livedataprueba.view;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -6,7 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
-import com.example.livedataprueba.activity.NameActivity;
+import com.example.livedataprueba.R;
 
 public class MainActivity extends AppCompatActivity {
 
