@@ -32,7 +32,6 @@ public class NameActivity extends AppCompatActivity {
         //TODO @Didac. En aquesta funció li passem al binding el viewmodel que treballarà aquests mutables i li indiquem
         setup();
 
-
         viewmodel.currentName.observe(this, new Observer<String>() {
             @Override
             public void onChanged(String s) {
